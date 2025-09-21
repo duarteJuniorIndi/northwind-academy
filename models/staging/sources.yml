@@ -1,0 +1,8 @@
+sources:
+  - name: northwind 
+    database: fea25_05
+    schema: raw_northwind
+    tables:
+      - name: orders
+      - name: customers
+      - name: order_details
