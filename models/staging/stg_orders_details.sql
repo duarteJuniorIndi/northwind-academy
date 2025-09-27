@@ -1,12 +1,6 @@
 with
-    orders_details as (
-        select 
-            id
-            , discount
-            , orderid
-            , productid
-            , quantity
-            , unitprice
+    order_details as (
+        select *
         from {{source('northwind', 'order_details')}}
     )
 
