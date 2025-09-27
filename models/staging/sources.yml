@@ -1,10 +1,19 @@
 sources:
   - name: northwind 
+    description: Data from Northwind ERP
     database: fea25_05
     schema: raw_northwind
     tables:
       - name: orders
+        description: This table lists the orders from ERP Northwind
+        columns:
+          - name: order_id
+            description: Unique ID for this table
       - name: customers
+        description: This table lists the customers from ERP Northwind
+        columns:
+          - name: customer_id
+            description: Unique ID for this table
       - name: order_details
       - name: products
       - name: category
