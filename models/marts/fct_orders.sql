@@ -37,11 +37,11 @@ with
         , order_details.quantity
         , products.discontinued
         , products.product_name
-        , products.QUANTITY_PER_UNIT
-        , products.REORDER_LEVEL
-        , products.UNITS_IN_STOCK
-        , products.UNITS_ON_ORDER
-        , products.UNIT_PRICE
+        , products.quantity_per_unity
+        , products.reorder_level
+        , products.units_in_stock
+        , products.units_on_order
+        , products.unit_price
         , categories.*
         , suppliers.*
     from orders
