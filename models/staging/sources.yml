@@ -6,6 +6,14 @@ sources:
     tables:
       - name: orders
         description: '{{ doc("orders_docs") }}'
+        freshness: 
+          warn_after:
+            count: 5000
+            period: day
+          error_after:
+            count: 20000
+            period: day
+        loaded_at_field: cast(order_date as timestamp)
         columns:
           - name: order_id
             description: Unique ID for this table
