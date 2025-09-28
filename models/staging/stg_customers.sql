@@ -1,17 +1,6 @@
 with
     customers as (
-        select 
-            id
-            , contactname
-            , companyname
-            , contacttitle
-            , fax
-            , phone
-            , address
-            , postalcode
-            , city
-            , region
-            , country
+        select *
         from {{source('northwind', 'customers')}}
     )
 

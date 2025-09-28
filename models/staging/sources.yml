@@ -2,13 +2,21 @@ sources:
   - name: northwind 
     description: Data from Northwind ERP
     database: fea25_05
-    schema: raw_northwind
+    schema: erp_northwind
     tables:
       - name: orders
-        description: This table lists the orders from ERP Northwind
+        description: '{{ doc("orders_docs") }}'
         columns:
           - name: order_id
             description: Unique ID for this table
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            tests:
+              - relationships:
+                  field: customer_id
+                  to: ref('stg_customers')
       - name: customers
         description: This table lists the customers from ERP Northwind
         columns:
@@ -16,5 +24,5 @@ sources:
             description: Unique ID for this table
       - name: order_details
       - name: products
-      - name: category
+      - name: categories
       - name: suppliers

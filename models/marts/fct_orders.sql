@@ -33,13 +33,20 @@ with
     select
         customers.sk_customer
         , orders.*
-        , order_details.*
-        , products.*
+        , order_details.discount
+        , order_details.quantity
+        , products.discontinued
+        , products.product_name
+        , products.QUANTITY_PER_UNIT
+        , products.REORDER_LEVEL
+        , products.UNITS_IN_STOCK
+        , products.UNITS_ON_ORDER
+        , products.UNIT_PRICE
         , categories.*
         , suppliers.*
     from orders
-    left join customers on orders.customerid = customers.id
-    left join order_details on orders.id = order_details.orderid
-    left join products on order_details.productid = products.id
-    left join categories on products.categoryid = categories.id
-    left join suppliers on products.supplierid = suppliers.id
+    left join customers on orders.customer_id = customers.customer_id
+    left join order_details on orders.order_id = order_details.order_id
+    left join products on order_details.product_id = products.product_id
+    left join categories on products.category_id = categories.category_id
+    left join suppliers on products.supplier_id = suppliers.supplier_id

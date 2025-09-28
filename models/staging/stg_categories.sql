@@ -1,7 +1,7 @@
 with
     categories as (
         select *
-        from {{source('northwind', 'category')}}
+        from {{source('northwind', 'categories')}}
     )
 
 select *
